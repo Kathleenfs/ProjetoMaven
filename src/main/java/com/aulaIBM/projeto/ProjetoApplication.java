@@ -1,22 +1,35 @@
 package com.aulaIBM.projeto;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ProjetoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProjetoApplication.class, args);
-		Scanner teclado = new Scanner(System.in);
-		String nome;
-		for (int count = 0; count < 5; count++) {
-			System.out.println("Digite o nome:");
-			nome = teclado.nextLine();
-			System.out.println(nome);
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader reader = new BufferedReader(
+				new InputStreamReader(System.in));
+
+		System.out.println("===== [ Olá turma 2 Java IBM ] =======");
+
+		List<String> nomes = new ArrayList<>();
+		for (int i = 1; i <= 5; i++) {
+			System.out.println("Digite o nome de número " + i + " :");
+			String nome = reader.readLine();
+			nomes.add(nome);
 		}
 
+		for (int i = 0; i < nomes.size(); i++) {
+			System.out.println("O nome " + (i + 1) + " digitado foi: " + nomes.get(i));
+		}
+
+		// SpringApplication.run(LogicaApplication.class, args);
 	}
+
 }
